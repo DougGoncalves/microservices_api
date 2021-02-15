@@ -5,6 +5,7 @@ import * as logger from 'morgan'
 
 import { conectarServidorNoBD } from './config/db'
 import { routerUsuario } from './routes/usuario'
+import { routerRoteiro } from './routes/roteiro'
 
 /**
  * Cria a aplicação
@@ -35,4 +36,5 @@ conectarServidorNoBD();
  * Configuração de rotas
  */
 app.use('/usuario', routerUsuario);
+app.use('/roteiro', routerRoteiro);
 app.use('/', (req,res) => res.send('API para trabalho de Microservices FIAP 36SCJ'))

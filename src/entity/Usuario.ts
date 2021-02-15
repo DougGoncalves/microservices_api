@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
+import { Roteiro } from "./Roteiro";
 
 @Entity()
 export class Usuario {
@@ -16,5 +17,8 @@ export class Usuario {
 
     @Column()
     email: string;
+
+    @OneToMany(() => Roteiro, roteiro => roteiro.usuario)
+    roteiros: Roteiro[]
 
 }

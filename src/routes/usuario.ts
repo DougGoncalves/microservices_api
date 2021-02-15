@@ -21,4 +21,13 @@ routerUsuario.post('/', async (req,res) => {
 routerUsuario.get('/', async (req, res) => {
   const usuarios = await usuarioCtrl.recuperarTodos();
   res.json(usuarios);
-})
+});
+
+/**
+ * Listar os roteiros de um determinado usuário
+ */
+routerUsuario.get('/roteiros/:id', async (req, res) => {
+  const  id  = parseInt(req.params.id);
+  const roteiros = await usuarioCtrl.recuperarRoteirosDoUsuario(id);
+  res.json(roteiros);
+});
